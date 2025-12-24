@@ -1,0 +1,112 @@
+
+
+<div class="container mt-4">
+
+  <!-- Product Search -->
+  <div class="form-group mt-3">
+    <input
+      #Product
+      type="text"
+      class="form-control">
+  </div>
+
+  <button class="btn btn-primary my-2" 
+  (click)="onSearch(Product)">
+    Search Product
+  </button>
+
+  <p *ngIf="searchValue" class="bg-info p-2">
+    Product: {{ searchValue }}
+  </p>
+
+  <!-- Email -->
+  <div class="form-group mt-3">
+    <input
+      #Email
+      type="email"
+      class="form-control">
+  </div>
+
+  <button class="btn btn-success my-2"
+   (click)="onEmail(Email)">
+    Submit Email
+  </button>
+
+  <p 
+  *ngIf="emailValue"
+   class="bg-success text-white p-2">
+    Email: {{ emailValue }}
+  </p>
+
+
+  <!-- City -->
+  <div class="form-group mt-3">
+    <input 
+    #City 
+    type="text" 
+    class="form-control"
+    placeholder="Enter city">
+  </div>
+  
+  <button 
+  class="btn btn-dark my-2" 
+  (click)="onCity(City)">
+  Submit City
+</button>
+
+  <p *ngIf="cityValue" 
+  class="bg-dark text-white p-2">
+  City: {{ cityValue }}</p>
+
+  <!-- Search -->
+  <div class="form-group mt-3">
+    <input
+      #Search
+      type="text"
+      class="form-control">
+  </div>
+
+  <button class="btn btn-secondary my-2"
+   (click)="onSearchText(Search)">
+    Search Text
+  </button>
+
+  <p *ngIf="searchText" 
+  class="bg-secondary text-white p-2">
+    Search Text: {{ searchText }}
+  </p>
+
+</div>
+
+
+
+
+
+
+
+<!-- <div class="form-group mt-3">
+    <input 
+    #Product
+    type="text" class="form-control">
+
+</div>
+
+<button
+  (click)="onSearch(Product)"
+    class="btn btn-primary my-3">    
+    Search Product
+</button>
+
+<p
+    *ngIf="searchValue"
+    [innerHTML]="searchValue"
+    class="bg-info p-3">
+    >
+</p> -->
+
+
+<!-- <button
+    [disabled]="!isFormValid"
+    class="btn btn-primary">    
+    Add Product
+</button> -->
