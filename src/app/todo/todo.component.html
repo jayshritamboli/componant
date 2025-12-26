@@ -7,21 +7,37 @@
                 <label for="todoItem"><strong>Todo Item</strong></label>
                 <input #todoItem type="text" class="form-control">
             </div>
-            <button (click)="onTodoAdd()" class="btn-block" mat-raised-button color="primary">Add Todo</button>
+            <button 
+            *ngIf="!isEditMode"
+            (click)="onTodoAdd()"
+             class="btn-block" 
+             mat-raised-button color="primary">
+             Add Todo
+            </button>
+            <button 
+            *ngIf="isEditMode"
+            (click)="onUpdateTodo()"
+             class="btn-block" 
+             mat-raised-button color="primary">
+             Update Todo
+            </button>
+
         </div>
         <div class="col-md-6">
             <ul class="list-group" *ngIf="todoArr.length > 0; else noTodo">
-                <li *ngFor="let t of todoArr trackBy : trackById" class="list-group-item d-flex justify-content-between">
+                <li *ngFor="let todo of todoArr; trackBy : trackById" class="list-group-item d-flex justify-content-between">
                     <strong>
-                        {{t.todoItem}}
+                        {{todo.todoItem}}
                     </strong>
                     <div class="example-button-container">
-                        <button class="mr-2" mat-mini-fab color="primary">
+                        <button 
+                        (click)="onEdit(todo)"
+                        class="mr-2" mat-mini-fab color="primary">
                             <mat-icon><span class="material-symbols-outlined">
                                     edit
                                 </span></mat-icon>
                         </button>
-                        <button (click)="onRemove(t.todoId)"
+                        <button (click)="onRemove(todo.todoId)"
                         mat-mini-fab color="warn">
                             <mat-icon>delete</mat-icon>
                         </button>
@@ -36,3 +52,4 @@
         </div>
     </div>
 </div>            
+
